@@ -3,6 +3,7 @@ import axios from 'axios'
 import ReactMapGL, { Marker, Popup, NavigationControl } from 'react-map-gl'
 // import 'mapbox-gl/dist/mapbox-gl.css'
 import Header from './components/Header'
+// import MarkerCheck from './pages/MarkerCheck'
 
 const TOKEN =
   'pk.eyJ1IjoiYWxzbGVhZGVycyIsImEiOiJjang1aXNrcGkwMmR5M3lsZzg4OXFyNWRqIn0.qQib-cz84tOegHyTyc0U9g'
