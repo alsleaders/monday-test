@@ -80,13 +80,7 @@ export default function HelloWorld() {
               })
           })
       })
-
-    // post the long & lat to locations
-    // drop pins on the map
   }
-
-  // var geocoder = new MapboxGeocoder({ accessToken: TOKEN })
-  //   map.addControl(geocoder)
 
   return (
     <>
@@ -109,13 +103,12 @@ export default function HelloWorld() {
             return (
               <Marker key={city.id} latitude={city.lat} longitude={city.long}>
                 <button
+                  className="marker"
                   onClick={e => {
                     e.preventDefault()
                     setSelectedInfo(city)
                   }}
-                >
-                  Goal
-                </button>
+                />
               </Marker>
             )
           })}

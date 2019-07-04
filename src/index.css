@@ -37,6 +37,13 @@ input {
   align-items: center;
 }
 
+.marker {
+  height: 1rem;
+  width: 1rem;
+  border-radius: 1rem;
+  background: blue;
+}
+
 /* @media (min-width: 450px) {
   .input-column {
     display: flex;
