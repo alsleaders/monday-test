@@ -1,12 +1,21 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
-import ReactMapGL, { Marker, Popup, NavigationControl } from 'react-map-gl'
+import ReactMapGL, {
+  Marker,
+  Popup,
+  NavigationControl,
+  MapboxDirections
+} from 'react-map-gl'
 import 'mapbox-gl/dist/mapbox-gl.css'
 import Header from './components/Header'
+// import MapboxDirections from 'mapbox-gl-directions'
 
 const TOKEN =
   'pk.eyJ1IjoiYWxzbGVhZGVycyIsImEiOiJjang1aXNrcGkwMmR5M3lsZzg4OXFyNWRqIn0.qQib-cz84tOegHyTyc0U9g'
-
+let directions = {}
+let accessToken = ''
+let unit = ''
+let profile = ''
 export default function HelloWorld() {
   const [view, setView] = useState({
     latitude: 27.9506,
@@ -21,6 +30,7 @@ export default function HelloWorld() {
   // const [currentCoord, setCurrentCoord] = useState([])
   const [plannedDestination, setPlannedDestination] = useState('')
   // const [plannedCoord, setPlannedCoord] = useState([])
+  var MapboxDirections = require('../src/index')
 
   useEffect(() => {
     axios.get('https://localhost:5001/api/location').then(resp => {
@@ -80,6 +90,8 @@ export default function HelloWorld() {
               })
           })
       })
+
+    // add to your mapboxgl map
   }
 
   return (
@@ -98,6 +110,14 @@ export default function HelloWorld() {
         >
           <div style={{ position: 'absolute', left: 0 }}>
             <NavigationControl />
+            <MapboxDirections />
+            {/* <MapboxDirections
+              {...directions(
+                (accessToken = 'TOKEN'),
+                (unit = 'metric'),
+                (profile = 'mapbox/cycling')
+              )}
+            /> */}
           </div>
           {mapData.map(city => {
             return (
